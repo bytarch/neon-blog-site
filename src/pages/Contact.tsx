@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import StarField from '@/components/StarField';
 import SpaceElements from '@/components/SpaceElements';
 import { motion } from 'framer-motion';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -11,6 +12,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Contact = () => {
+  const isMobile = useIsMobile();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -49,34 +51,34 @@ const Contact = () => {
 
       {/* Content */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={isMobile ? { duration: 0 } : { duration: 0.6 }}
         className="relative z-10 px-4 py-20"
       >
         <div className="max-w-4xl mx-auto">
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={isMobile ? { duration: 0 } : { duration: 0.6, delay: 0.2 }}
             className="text-4xl font-bold mb-8 italic text-center"
           >
             Contact Us
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={isMobile ? { duration: 0 } : { duration: 0.6, delay: 0.4 }}
             className="text-gray-400 mb-12 italic text-center max-w-2xl mx-auto"
           >
             Have questions about our services? Need support? Get in touch with the Neon Next Generation team.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={isMobile ? { duration: 0 } : { duration: 0.6, delay: 0.6 }}
             className="grid grid-cols-1 lg:grid-cols-2 gap-8"
           >
             {/* Contact Form */}

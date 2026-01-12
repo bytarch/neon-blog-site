@@ -6,10 +6,12 @@ import { useEffect } from "react";
 import StarField from '@/components/StarField';
 import SpaceElements from '@/components/SpaceElements';
 import { motion } from 'framer-motion';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { Button } from "@/components/ui/button";
 import { Rocket, Home } from 'lucide-react';
 
 const NotFound = () => {
+  const isMobile = useIsMobile();
   const location = useLocation();
 
   useEffect(() => {
@@ -35,16 +37,16 @@ const NotFound = () => {
       {/* Content */}
       <div className="relative z-10 flex items-center justify-center min-h-screen px-4">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={isMobile ? { duration: 0 } : { duration: 0.6 }}
           className="text-center max-w-lg mx-auto"
         >
           {/* 404 Number */}
           <motion.div
-            initial={{ scale: 0 }}
+            initial={isMobile ? { scale: 1 } : { scale: 0 }}
             animate={{ scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={isMobile ? { duration: 0 } : { duration: 0.8, delay: 0.2 }}
             className="mb-8"
           >
             <h1 className="text-8xl md:text-9xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-4">
@@ -57,9 +59,9 @@ const NotFound = () => {
 
           {/* Error Message */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={isMobile ? { duration: 0 } : { duration: 0.6, delay: 0.4 }}
           >
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
               Lost in Space
@@ -72,9 +74,9 @@ const NotFound = () => {
 
           {/* Action Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={isMobile ? { duration: 0 } : { duration: 0.6, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button
@@ -95,9 +97,9 @@ const NotFound = () => {
 
           {/* Additional Help */}
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={isMobile ? { opacity: 1 } : { opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
+            transition={isMobile ? { duration: 0 } : { duration: 0.6, delay: 0.8 }}
             className="mt-12 text-sm text-gray-500"
           >
             <p>

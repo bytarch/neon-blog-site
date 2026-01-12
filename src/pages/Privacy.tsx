@@ -4,8 +4,10 @@ import React from 'react';
 import StarField from '@/components/StarField';
 import SpaceElements from '@/components/SpaceElements';
 import { motion } from 'framer-motion';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Privacy = () => {
+  const isMobile = useIsMobile();
   return (
     <div className="min-h-screen bg-[#050505] text-white overflow-hidden relative">
       {/* Background with radial gradient glow */}
@@ -16,14 +18,13 @@ const Privacy = () => {
       {/* Starry Background */}
       <StarField />
 
-      {/* Space Elements */}
-      <SpaceElements />
+ 
 
       {/* Content */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={isMobile ? { duration: 0 } : { duration: 0.6 }}
         className="relative z-10 px-4 py-20"
       >
         <div className="max-w-4xl mx-auto prose prose-invert prose-lg">

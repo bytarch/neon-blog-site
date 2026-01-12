@@ -19,8 +19,6 @@ const LandingPage = () => {
       {/* Starry Background */}
       <StarField />
 
-      {/* Space Elements */}
-      <SpaceElements />
 
       {/* Hero Section */}
       <HeroSection />

@@ -4,10 +4,12 @@ import React from 'react';
 import StarField from '@/components/StarField';
 import SpaceElements from '@/components/SpaceElements';
 import { motion } from 'framer-motion';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { faqData } from '@/lib/faq-constants';
 
 const FAQ = () => {
+  const isMobile = useIsMobile();
   return (
     <div className="min-h-screen bg-[#050505] text-white overflow-hidden relative">
       {/* Background with radial gradient glow */}
@@ -18,39 +20,37 @@ const FAQ = () => {
       {/* Starry Background */}
       <StarField />
 
-      {/* Space Elements */}
-      <SpaceElements />
 
       {/* Content */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={isMobile ? { duration: 0 } : { duration: 0.6 }}
         className="relative z-10 px-4 py-20"
       >
         <div className="max-w-4xl mx-auto">
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={isMobile ? { duration: 0 } : { duration: 0.6, delay: 0.2 }}
             className="text-4xl font-bold mb-8 italic text-center"
           >
             Frequently Asked Questions
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={isMobile ? { duration: 0 } : { duration: 0.6, delay: 0.4 }}
             className="text-gray-400 mb-12 italic text-center max-w-2xl mx-auto"
           >
             Find answers to common questions about our VPN and hosting services.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={isMobile ? { duration: 0 } : { duration: 0.6, delay: 0.6 }}
           >
             <Accordion type="single" collapsible className="space-y-4">
               {faqData.filter(section => section.title === "VPN Services").map((section, sectionIndex) => (
@@ -163,9 +163,9 @@ const FAQ = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
+            transition={isMobile ? { duration: 0 } : { duration: 0.6, delay: 0.8 }}
             className="mt-12 text-center"
           >
             <p className="text-gray-400 mb-4">

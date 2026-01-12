@@ -4,8 +4,10 @@ import React from 'react';
 import StarField from '@/components/StarField';
 import SpaceElements from '@/components/SpaceElements';
 import { motion } from 'framer-motion';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Terms = () => {
+  const isMobile = useIsMobile();
   return (
     <div className="min-h-screen bg-[#050505] text-white overflow-hidden relative">
       {/* Background with radial gradient glow */}
@@ -16,19 +18,18 @@ const Terms = () => {
       {/* Starry Background */}
       <StarField />
 
-      {/* Space Elements */}
-      <SpaceElements />
+
 
       {/* Content */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={isMobile ? { duration: 0 } : { duration: 0.6 }}
         className="relative z-10 px-4 py-20"
       >
         <div className="max-w-4xl mx-auto prose prose-invert prose-lg">
           <h1 className="text-4xl font-bold mb-8 text-center">Terms & Conditions</h1>
-          <p className="text-gray-400 mb-8 text-center">Updated at: September 21, 2025</p>
+          <p className="text-gray-400 mb-8 text-center">Updated at: January 12, 2026</p>
 
           <p className="mb-4">
             <strong>Entity:</strong> Neon Next Generation PTY LTD (ABN: 86 686 080 704)<br />
@@ -60,20 +61,23 @@ const Terms = () => {
             <li>Accounts may be suspended or deactivated for inactivity, non-compliance, or suspected fraud. Sharing credentials is prohibited unless explicitly permitted.</li>
           </ul>
 
-          <h2 className="text-2xl font-bold mb-4">3. User Content</h2>
-          <h3 className="text-xl font-semibold mb-2">a. Ownership & License</h3>
+          <h2 className="text-2xl font-bold mb-4">3. User Content NEW</h2>
+          <h3 className="text-xl font-semibold mb-2">Responsibility & Restrictions</h3>
           <p className="mb-4">
-            You retain ownership of your content but grant Neon Next Generation PTY LTD a non-exclusive, worldwide, royalty-free license to use, reproduce, display, and distribute it as part of the Services.
+            Users are solely responsible for all content uploaded, hosted, transmitted, or otherwise made available through the Services. All content must:
           </p>
-          <h3 className="text-xl font-semibold mb-2">b. Restrictions</h3>
           <ul className="mb-4">
-            <li>Content must not violate laws</li>
-            <li>Content must not be offensive, obscene, or unlawful</li>
-            <li>Content must not infringe the rights of others</li>
+            <li>Comply with all applicable local, national, and international laws and regulations</li>
+            <li>Not be offensive, obscene, defamatory, illegal, or otherwise harmful</li>
+            <li>Not infringe the intellectual property, privacy, or other rights of any third party</li>
           </ul>
-          <h3 className="text-xl font-semibold mb-2">c. Moderation & Disclaimer</h3>
+          <h3 className="text-xl font-semibold mb-2">Moderation & Enforcement</h3>
+          <p className="mb-4">
+            Neon Next Generation PTY LTD may review, monitor, or remove user content at its discretion and without notice. Automated tools may be used to detect or block harmful content. By using the Services, users agree that their content may be monitored or restricted.
+          </p>
+          <h3 className="text-xl font-semibold mb-2">Disclaimer</h3>
           <p className="mb-8">
-            We may review, moderate, or remove content at our discretion. We do not endorse, verify, or assume responsibility for user-generated content.
+            Neon Next Generation PTY LTD does not endorse or assume liability for user-generated content. All content is provided at the user’s own risk.
           </p>
 
           <h2 className="text-2xl font-bold mb-4">4. Trial Periods & Subscriptions</h2>
@@ -96,10 +100,20 @@ const Terms = () => {
             We handle personal data in compliance with the Australian Privacy Principles (APPs) and EU GDPR. Cookies are used for site functionality, analytics, and preferences. Users may manage cookies via browser settings. See our <a href="/privacy">Privacy Policy</a> for details. Users under 18 must have parental consent for data processing.
           </p>
 
-          <h2 className="text-2xl font-bold mb-4">8. Service Availability, Security & Bandwidth</h2>
-          <p className="mb-8">
-            We strive for continuous service but cannot guarantee uninterrupted access. Beta or experimental features are provided as-is. Users must protect login credentials and maintain independent backups. Exceeding bandwidth or storage limits may result in throttling or suspension. Neon Next Generation is not liable for delays or failures due to force majeure or technical failures. Unauthorized activity such as DDoS attacks, phishing, or exploiting vulnerabilities is strictly prohibited.
-          </p>
+          <h2 className="text-2xl font-bold mb-4">8. Service Availability, Security & Shared Resources</h2>
+          <ul className="mb-4">
+            <li>We aim for reliable access but cannot guarantee uninterrupted availability.</li>
+            <li>Beta or experimental features are provided "as-is."</li>
+            <li>Users must protect their login credentials and maintain their own backups.</li>
+            <li>All plans include dedicated weekly backups, and you can also back up your data manually at any time.</li>
+            <li>Unauthorized activity such as DDoS attacks, phishing, or exploiting vulnerabilities is strictly prohibited.</li>
+          </ul>
+          <h3 className="text-xl font-semibold mb-2">Shared RAM & CPU:</h3>
+          <ul className="mb-8">
+            <li>All plans operate on shared server resources (RAM and CPU) with other users.</li>
+            <li>Each plan has a hard limit on the maximum resources it can use.</li>
+            <li>Performance may vary depending on concurrent usage by other users</li>
+          </ul>
 
           <h2 className="text-2xl font-bold mb-4">9. DMCA & Copyright Infringement</h2>
           <p className="mb-8">
