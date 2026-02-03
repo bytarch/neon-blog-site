@@ -4,6 +4,7 @@ import React from 'react';
 import StarField from './StarField';
 import SpaceElements from './SpaceElements';
 import HeroSection from './HeroSection';
+import VPSSection from './VPSSection';
 import AboutSection from './AboutSection';
 import MissionSection from './MissionSection';
 import PricingSection from './PricingSection';
@@ -22,6 +23,9 @@ const LandingPage = () => {
 
       {/* Hero Section */}
       <HeroSection />
+
+      {/* VPS Section */}
+      <VPSSection />
 
       {/* Pricing Section */}
       <PricingSection />
