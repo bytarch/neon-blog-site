@@ -11,6 +11,8 @@ import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
 import FooterBar from "./components/FooterBar";
 import Footer from "./components/Footer";
+import Dashboard from "./pages/Dashboard";
+import PostDetail from "./pages/PostDetail";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +28,9 @@ const App = () => (
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/:slug" element={<PostDetail />} />
+
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

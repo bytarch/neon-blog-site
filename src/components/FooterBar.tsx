@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { DollarSign, Server, UserPlus } from 'lucide-react';
 import { GlassEffect } from './GlassEffect';
+import { ThemeToggle } from './ui/ThemeToggle';
 
 const FooterBar = () => {
   const links = [
@@ -12,6 +13,9 @@ const FooterBar = () => {
   ];
 
   return (
+    
+    <>
+    <ThemeToggle />
     <motion.div
       initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -21,7 +25,7 @@ const FooterBar = () => {
       <GlassEffect className="px-6 py-3 rounded-full flex items-center space-x-8">
         {/* Logo */}
         <div className="w-8 h-8 rounded-full flex items-center justify-center overflow-hidden">
-          <a href="/" className="md:pointer-events-none block w-full h-full rounded-full flex items-center justify-center overflow-hidden">
+          <a href="/" className="md:pointer-events-none flex w-full h-full rounded-full items-center justify-center overflow-hidden">
             <img src="/favico.png" alt="Website Logo" className="w-full h-full object-cover" />
           </a>
         </div>
@@ -30,6 +34,7 @@ const FooterBar = () => {
         <div className="hidden md:flex items-center space-x-6 text-sm">
           <a href="/" className="text-gray-300 hover:text-white transition-colors">Home</a>
           <a href="/#pricing" className="text-gray-300 hover:text-white transition-colors">Pricing</a>
+          <a href="/Dashboard" className="text-gray-300 hover:text-white transition-colors">News</a>
           <a href="https://hosting.neonnextgeneration.com/" target='_blank' className="text-gray-300 hover:text-white transition-colors">Hosting</a>
          
         </div>
@@ -55,6 +60,8 @@ const FooterBar = () => {
         </button>
       </GlassEffect>
     </motion.div>
+    </>
+    
   );
 };
 
